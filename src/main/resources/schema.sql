@@ -6,7 +6,6 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `id_UNIQUE` (`id_usuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1;
-INSERT INTO usuario(nome_usuario, senha) VALUES('admin','admin');
 
 CREATE TABLE IF NOT EXISTS `projeto` (
   `id_projeto` int NOT NULL AUTO_INCREMENT,
@@ -14,7 +13,6 @@ CREATE TABLE IF NOT EXISTS `projeto` (
   PRIMARY KEY (`id_projeto`),
   UNIQUE KEY `id_projeto_UNIQUE` (`id_projeto`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1;
-INSERT INTO projeto(nome_projeto) VALUES('Projeto integrador');
 
 CREATE TABLE IF NOT EXISTS `task` (
   `id_task` int NOT NULL AUTO_INCREMENT,
