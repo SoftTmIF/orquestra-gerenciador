@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orquestra</title>
+    <link rel="stylesheet" href="/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" href='../static/css/estilo.css' th:href="@{/css/estilo.css}">
+    
+    <script>
+        /*function getUsuario() {
+        document.getElementById("usuario").value = localStorage.getItem("usuarioAutenticado");
+        }*/
+    </script>
+</head>
+<body>
+    <header th:insert="fragments/header::navbar"></header>
+
+    <main class="bordas">
+        <form action="/novo-projeto" method="post" th:object="${projeto}" class="row form">
+            
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <legend class="titulo">Cadastro de Projeto</legend>
+                <a href="/projetos"><button class="btn btn-primary rounded-circle border-0 p-2" type="button"><img width="40px" alt="voltar" th:src="@{/images/arrowback.png}"></button></a>
+            </div>
+            <div class="form-group mt-3">
+                <label>Nome do Projeto</label>
+                <input type="text" th:field="*{nome_projeto}" class="form-control">
+            </div>
+            <input type="text" th:field="*{id_projeto}" style="display: none">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+                <button class="btn btn-secondary me-md-2" type="reset">Limpar</button>
+                <button class="btn btn-primary" type="submit">Enviar</button>
+            </div>
+            
+        </form>
+    </main>
+    
+    <footer class="footer" th:insert="fragments/footer::footer"></footer>
+</body>
+</html>

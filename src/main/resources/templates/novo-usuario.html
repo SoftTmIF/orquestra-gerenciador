@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="../static/css/estilo.css" th:href="@{/css/estilo.css}">
+    <title>Cadastre-se</title>
+</head>
+<body>
+    <header th:insert="fragments/navbar-clean::navbar-clean"></header>
+
+    <!-- TODO: Inserir alert com usuário cadastrado com sucesso e mostrar id do usuário!-->
+    <!-- TODO: Inserir validação de senha-->
+
+    <main>
+        <form style="width: 500px; margin: auto" action="/novo-usuario" method="post" th:object="${usuario}">
+            <div class="mb-3">
+                <label id="nome" class="form-label">Nome de Usuário</label>
+                <input type="text" name="nome" th:field="*{nome_usuario}" class="form-control" aria-describedby="emailHelp">
+                <div id="userHelp" class="form-text">O nome de usuário não deve conter espaços</div>
+            </div>
+            <div class="mb-3">
+                <label id="pwd" class="form-label">Senha</label>
+                <input type="password" name="pwd" th:field="*{senha}" class="form-control">
+                <div id="passwordHelp" class="form-text">A senha deve conter números e letras</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </main>
+
+    <footer class="footer" th:insert="fragments/rodape::rodape"></footer>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orquestra</title>
+    <link rel="stylesheet" href='../static/css/estilo.css' th:href="@{/css/estilo.css}">
+    <link rel="stylesheet" href="/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <script>
+        function getUsuario() {
+        document.getElementById("usuario").value = localStorage.getItem("usuarioAutenticado");
+        }
+    </script>
+</head>
+<body onload="getUsuario()">
+    <header th:insert="fragments/header::navbar"></header>
+
+    <!-- TODO: Inserir alert com tasks cadastrada com sucesso!-->
+
+    <main class="bordas">
+        <form action="/cadastro-task" method="post" th:object="${task}" class="row form">
+            
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <legend class="titulo">Cadastro de Task</legend>
+                <a href="/tasks"><button class="btn btn-primary rounded-circle border-0 p-2" type="button"><img width="40px" alt="voltar" th:src="@{/images/arrowback.png}"></button></a>
+            </div>
+            <div class="form-group col-md-3 mt-3">
+                <label>ID do Projeto</label>
+                <input type="text" th:field="*{idProjeto}" class="form-control">
+            </div>
+            <div class="form-group col-md-3 mt-3">
+                <label>Natureza</label>
+                <input type="text" th:field="*{tipoNatureza}" class="form-control">
+            </div>
+            <div class="form-group col-md-3 mt-3">
+                <label>Total de Horas</label>
+                <input type="text" th:field="*{totalHoras}" class="form-control">
+            </div>
+            <div class="form-group col-md-3 mt-3">
+                <label>Data da Execução</label>
+                <input type="date" th:field="*{dataExecucao}" class="form-control">
+            </div>
+            <div class="form-group mt-2 mb-3">
+                <label>Descrição</label>
+                <input type="text" th:field="*{descricao}" class="form-control">
+            </div>
+            <input type="text" id="usuario" th:field="*{usuario}" style="display: none">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-secondary me-md-2" type="reset">Limpar</button>
+                <button class="btn btn-primary" type="submit">Enviar</button>
+            </div>
+            <input type="text" th:field="*{id}" style="display: none">
+        </form>
+    </main>
+    
+    <footer class="footer" th:insert="fragments/footer::footer"></footer>
+</body>
+</html>
