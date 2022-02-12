@@ -1,7 +1,7 @@
 
 use orquestra;
 
-CREATE TABLE `usuario` (
+CREATE TABLE IF NOT EXISTS `usuario` (
   `id_usuario` int NOT NULL AUTO_INCREMENT,
   `senha` varchar(12) NOT NULL,
   `nome_usuario` varchar(60) NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1;
 INSERT INTO usuario(nome_usuario, senha) VALUES('admin','admin');
 
-CREATE TABLE `projeto` (
+CREATE TABLE IF NOT EXISTS `projeto` (
   `id_projeto` int NOT NULL AUTO_INCREMENT,
   `nome_projeto` varchar(45) NOT NULL,
   PRIMARY KEY (`id_projeto`),
@@ -18,7 +18,7 @@ CREATE TABLE `projeto` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1;
 INSERT INTO projeto(nome_projeto) VALUES('Projeto integrador');
 
-CREATE TABLE `task` (
+CREATE TABLE IF NOT EXISTS `task` (
   `id_task` int NOT NULL AUTO_INCREMENT,
   `data_de_execucao` date NOT NULL,
   `total_de_horas` decimal(4,0) NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE `task` (
   FOREIGN KEY (`projeto`) REFERENCES `projeto` (`id_projeto`) on update cascade on delete cascade
 ) ENGINE=InnoDB;
 
-CREATE TABLE `usuario_projeto` (
+CREATE TABLE IF NOT EXISTS `usuario_projeto` (
   `usuario_r` int NOT NULL,
   `projeto_r` int NOT NULL,
   PRIMARY KEY (`usuario_r`,`projeto_r`),
