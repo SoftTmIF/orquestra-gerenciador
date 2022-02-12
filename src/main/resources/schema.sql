@@ -1,6 +1,4 @@
 
-use orquestra;
-
 CREATE TABLE IF NOT EXISTS `usuario` (
   `id_usuario` int NOT NULL AUTO_INCREMENT,
   `senha` varchar(12) NOT NULL,
