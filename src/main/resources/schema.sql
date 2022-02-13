@@ -37,3 +37,4 @@ CREATE TABLE IF NOT EXISTS `usuario_projeto` (
   CONSTRAINT `usuario_r` FOREIGN KEY (`usuario_r`) REFERENCES `usuario` (`id_usuario`)
 ) ENGINE=InnoDB;
 
+ALTER TABLE USUARIO MODIFY SENHA VARCHAR(255);
