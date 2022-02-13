@@ -35,6 +35,7 @@
             <!-- <section class="section-container section-one">section-content -->
             <div class="section-content container-login">
                 <h2 class="titulo">Bem-vindo de volta</h2>
+                <div class="erro" th:if="${param.error}">Usuário/Senha inválidos.</div>
 <!--  -->
                 <form method="post" th:action="@{/login}" th:object="${testeLogin}" class="form container row-cols-1 align-items-center justify-content-center form-login">
                     <input type="text" id="txtUsuario" name="Usuario" placeholder="Usuário" th:field="*{nome_usuario}">
@@ -59,7 +60,7 @@
                     </div>
                 </form>
             </div>
-            <div th:if="${param.error}">Usuário/Senha inválidos.</div>
+            
             <div th:if="${param.logout}">Você foi deslogado.</div>
           </section>
         </div>
