@@ -43,7 +43,7 @@ public class WebConfigSecurity extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/home").authenticated()
-                .antMatchers("/novo-usuario").authenticated()
+                .antMatchers("/novo-usuario").permitAll()
                 .antMatchers("/tasks").authenticated()
                 .antMatchers("/editar-task").authenticated()
                 .antMatchers("/excluir-task").authenticated()
