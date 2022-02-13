@@ -6,7 +6,9 @@
                     <a href="/home" data-item='ORQUESTRA'>ORQUESTRA</a>
                 </li>
                 <li>
-                    <a data-item='Sair' href="/login">Sair</a>
+                    <form th:action="@{/logout}" method="post" class="ml-4" sec:authorize="isAuthenticated()">
+                        <button type="submit" value="Sair">
+                </form>
                 </li>
             </ul>
         </nav>

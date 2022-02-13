@@ -36,10 +36,11 @@
             <div class="section-content container-login">
                 <h2 class="titulo">Bem-vindo de volta</h2>
                 <div class="erro" th:if="${param.error}">Usuário/Senha inválidos.</div>
+                <div class="erro" th:if="${param.logout}">Você foi deslogado.</div>
 <!--  -->
                 <form method="post" th:action="@{/login}" th:object="${testeLogin}" class="form container row-cols-1 align-items-center justify-content-center form-login">
                     <input type="text" id="txtUsuario" name="Usuario" placeholder="Usuário" th:field="*{nome_usuario}">
-                    <input type="password" id="txtSenha" name="Senha" placeholder="Senha" th:field="*{senha}">
+                    <input type="password" id="txtSenha" name="password" placeholder="Senha" th:field="*{senha}">
                     
                     <div class="container justify-content-center align-items-center">
                         <div class="row row-cols-1 align-items-center justify-content-center">
@@ -60,8 +61,6 @@
                     </div>
                 </form>
             </div>
-            
-            <div th:if="${param.logout}">Você foi deslogado.</div>
           </section>
         </div>
     </main>
