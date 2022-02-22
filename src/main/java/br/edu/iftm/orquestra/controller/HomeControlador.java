@@ -13,8 +13,7 @@ public class HomeControlador {
 
 	@RequestMapping("/")
 	public String begin() {
-		return "redirect:/login";
+		return "redirect:/home";
 	}
 
 }
-

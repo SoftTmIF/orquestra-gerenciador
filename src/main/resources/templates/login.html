@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Orquestra</title>
-    
-    <link rel="stylesheet" href="/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
-    <link rel="stylesheet" href='../static/css/estilo.css' th:href="@{/css/estilo.css}">
+
+    <link
+      rel="stylesheet"
+      href="/bootstrap.min.css"
+      th:href="@{/css/bootstrap.min.css}"
+    />
+    <link
+      rel="stylesheet"
+      href="../static/css/estilo.css"
+      th:href="@{/css/estilo.css}"
+    />
     <script>
-        function saveUser() {
-            localStorage.setItem("usuarioAutenticado",document.getElementById("txtUsuario").value);
-        }
+      function saveUser() {
+        localStorage.setItem(
+          "usuarioAutenticado",
+          document.getElementById("txtUsuario").value
+        );
+      }
     </script>
-</head>
-<body>
+  </head>
+  <body>
     <!--<header th:insert="fragments/navbar-clean::navbar-clean">
     </header>-->
 
@@ -23,49 +34,87 @@
     <!-- TODO: Verificar implementação de validação de login-->
 
     <main>
-        <!--TESTE TRANSIÇÃO-->
-        <input type="radio" class="radio" name="pages" id="exit" checked />
+      <!--TESTE TRANSIÇÃO-->
+      <input type="radio" class="radio" name="pages" id="exit" checked />
 
-        <div class="page demo2">
-
-          <input type="radio" class="radio" name="pages" id="page_1" />
-          <section class="section-container section-one">
-            <label for="page_1" class="page-label check-label"><span><img th:src="@{/images/orquestra-logo.png}"alt=""></span></label>
-            <!--INICIO DA PAGINA LOGIN-->
-            <!-- <section class="section-container section-one">section-content -->
-            <div class="section-content container-login">
-                <h2 class="titulo">Bem-vindo de volta</h2>
-                <div class="erro" th:if="${param.error}">Usuário/Senha inválidos.</div>
-                <div class="erro" th:if="${param.logout}">Você foi deslogado.</div>
-<!--  -->
-                <form method="post" th:action="@{/login}" th:object="${testeLogin}" class="form container row-cols-1 align-items-center justify-content-center form-login">
-                    <input type="text" id="txtUsuario" name="Usuario" placeholder="Usuário" th:field="*{nome_usuario}">
-                    <input type="password" id="txtSenha" name="password" placeholder="Senha" th:field="*{senha}">
-                    
-                    <div class="container justify-content-center align-items-center">
-                        <div class="row row-cols-1 align-items-center justify-content-center">
-                                <div class="containerbt mt-5">
-                                    <div class="center">
-                                        <button type="submit" class="btn btn-login" onclick="saveUser()">
-                                            <svg width="250px" height="60px" viewBox="0 1 250 60" class="">
-                                            <polyline points="249,0 249,59 1,59 1,1 249,0" class="bg-line" />
-                                            <polyline points="249,0 249,59 1,59 1,1 249,0" class="hl-line" />
-                                            </svg>
-                                            <span class="btn-login">Login</span>
-                                        </button>
-                                    </div>
-                                </div>
-<!--                            <div class="col justify-content-center row login"><a href="@{/novo-usuario}" class="link-login">Esqueci minha senha</a></div>-->
-                            <div class="col row justify-content-center"><a th:href="@{/novo-usuario}" class="link-login">Ainda não sou cadastrado</a></div>
-                        </div>
-                    </div>
-                </form>
+      <div class="page demo2">
+        <input type="radio" class="radio" name="pages" id="page_1" />
+        <section class="section-container section-one">
+          <label for="page_1" class="page-label check-label"
+            ><span><img th:src="@{/images/orquestra-logo.png}" alt="" /></span
+          ></label>
+          <!--INICIO DA PAGINA LOGIN-->
+          <!-- <section class="section-container section-one">section-content -->
+          <div class="section-content container-login">
+            <h2 class="titulo">Bem-vindo de volta</h2>
+            <div class="erro" th:if="${param.error}">
+              Usuário/Senha inválidos.
             </div>
-          </section>
-        </div>
+            <div class="erro" th:if="${param.logout}">Você foi deslogado.</div>
+            <!--  -->
+            <form
+              th:action="@{/login}"
+              method="post"
+              class="form container row-cols-1 align-items-center justify-content-center form-login"
+            >
+              <input
+                type="text"
+                id="txtUsuario"
+                name="username"
+                placeholder="Usuário"
+              />
+              <input
+                type="password"
+                id="txtSenha"
+                name="password"
+                placeholder="Senha"
+              />
+
+              <div class="container justify-content-center align-items-center">
+                <div
+                  class="row row-cols-1 align-items-center justify-content-center"
+                >
+                  <div class="containerbt mt-5">
+                    <div class="center">
+                      <button
+                        type="submit"
+                        class="btn btn-login"
+                        onclick="saveUser()"
+                      >
+                        <svg
+                          width="250px"
+                          height="60px"
+                          viewBox="0 1 250 60"
+                          class=""
+                        >
+                          <polyline
+                            points="249,0 249,59 1,59 1,1 249,0"
+                            class="bg-line"
+                          />
+                          <polyline
+                            points="249,0 249,59 1,59 1,1 249,0"
+                            class="hl-line"
+                          />
+                        </svg>
+                        <span class="btn-login">Login</span>
+                      </button>
+                    </div>
+                  </div>
+                  <!--                            <div class="col justify-content-center row login"><a href="@{/novo-usuario}" class="link-login">Esqueci minha senha</a></div>-->
+                  <div class="col row justify-content-center">
+                    <a th:href="@{/novo-usuario}" class="link-login"
+                      >Ainda não sou cadastrado</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
     </main>
 
     <!--<footer class="footer" th:insert="fragments/rodape::rodape">
     </footer>-->
-</body>
+  </body>
 </html>
